@@ -1,0 +1,21 @@
+{
+  "name": "llm-bot",
+  "version": "1.0.0",
+  "description": "A bot that allows a Wickr user to query a locally deployed LLM",
+  "main": "bot-code.js",
+  "repository": "",
+  "author": "charlcch",
+  "license": "MIT-0",
+  "scripts": {
+    "start": "nohup wpm2 start --no-metrics ./wpm.json >>wpm2.output 2>&1 & echo $! > $(cat pidLocation.json)",
+    "stop": "kill $(cat $(cat pidLocation.json))",
+    "restart": "kill $(cat $(cat pidLocation.json)) && nohup wpm2 start --no-metrics ./wpm.json >>wpm2.output 2>&1 & echo $! > $(cat pidLocation.json)"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "prompt": "^1.0.0",
+    "filereader": "^0.10.3",
+    "uuid": "^9.0.1",
+    "wickrio-bot-api": "6.20.x"
+  }
+}
